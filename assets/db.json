@@ -59,6 +59,21 @@
       "nombre": "Dohko",
       "constelacion": "Libra",
       "id": 12
+    },
+    {
+      "nombre": "andres",
+      "constelacion": "aaa",
+      "id": 13
+    },
+    {
+      "nombre": "Andres Felipe",
+      "constelacion": "asdf",
+      "id": 14
+    },
+    {
+      "nombre": "andres",
+      "constelacion": "asdf",
+      "id": 15
     }
   ],
   "dioses": [

@@ -2,7 +2,7 @@
 import { SantosService } from "../model/services/santos.services.mjs";
 import { IndexView } from "../view/index.view.mjs";
 
-class IndexController{
+export class IndexController{
     #indesxView;
     #santosService;
     #data;
@@ -15,6 +15,10 @@ class IndexController{
     async init(){
         const data = await this.#santosService.getAllSantos()
         this.#indesxView.startView(data);
+    }
+
+    async createSanto(newSanto){ 
+        //this.#santosService.createSanto(newSanto);
     }
 
 }
