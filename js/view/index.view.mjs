@@ -2,15 +2,13 @@ import { IndexController } from "../controller/index.controller.mjs";
 
 export class IndexView{
     #indexController;
-    #tableBody;
     #document;
     #form;
     #template;
     #title;
 
     constructor() {
-        this.#document = document;
-        this.#tableBody = document.querySelector('tbody'); 
+        this.#document = document; 
         this.#form = document.querySelector('.crud-form');
         this.#template = document.querySelector('#crud-template').content;
         this.#title = document.querySelector('.crud-title');
