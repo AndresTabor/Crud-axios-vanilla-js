@@ -9,7 +9,7 @@ export class SantosService {
         }
     }
 
-    createSanto = async ( newSanto) => {
+    createSanto = async (newSanto) => {
         const {nombre, constelacion} = newSanto;
         try {
             let result = await axios("http://localhost:5555/santos",
@@ -29,5 +29,20 @@ export class SantosService {
             console.log(error.err.statusText);
         }
     }
-    
+
+    deleteSanto = async (idSanto) => {
+        try {
+            let result = await axios(`http://localhost:5555/santos/${idSanto}`,
+            {
+                method: "DELETE",
+                headers: {
+                "Content-type": "application/json; charset=utf-8"
+                }
+            }),
+            json = await result.data;
+            return json;
+        } catch (error) {
+            console.log(error.err.statusText);
+        }
+    }    
 }

@@ -62,18 +62,8 @@
     },
     {
       "nombre": "andres",
-      "constelacion": "aaa",
+      "constelacion": "asdf",
       "id": 13
-    },
-    {
-      "nombre": "Andres Felipe",
-      "constelacion": "asdf",
-      "id": 14
-    },
-    {
-      "nombre": "andres",
-      "constelacion": "asdf",
-      "id": 15
     }
   ],
   "dioses": [

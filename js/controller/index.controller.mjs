@@ -18,7 +18,11 @@ export class IndexController{
     }
 
     async createSanto(newSanto){ 
-        //this.#santosService.createSanto(newSanto);
+        this.#santosService.createSanto(newSanto);
+    }
+
+    async deleteSanto (idSanto){
+        this.#santosService.deleteSanto(idSanto);
     }
 
 }

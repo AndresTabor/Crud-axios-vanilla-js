@@ -13,7 +13,7 @@ export class IndexView{
         this.#tableBody = document.querySelector('tbody'); 
         this.#form = document.querySelector('.crud-form');
         this.#template = document.querySelector('#crud-template').content;
-        this.#title = document.querySelector('#crud-title');
+        this.#title = document.querySelector('.crud-title');
     }
 
     startView(santos){
@@ -36,23 +36,46 @@ export class IndexView{
   
         $table.querySelector("tbody").appendChild($fragment);
         this.evenForm();
+        this.eventButtons();
         console.log(santos);
     }
 
     evenForm(){
         this.#document.addEventListener("submit", (e) => {
             e.preventDefault();
+
+            let newSanto = {
+                nombre: e.target.nombre.value,
+                constelacion: e.target.constelacion.value
+            }
+
             if (e.target === this.#form && !e.target.id.value) {                
-                let newSanto = {
-                    nombre: e.target.nombre.value,
-                    constelacion: e.target.constelacion.value
-                }                
                 this.#indexController.createSanto(newSanto);
             }else{
-                console.log("update");
+                
             }
         })
     }
 
-    
+    eventButtons(){
+        this.#document.addEventListener("click", (e) => {
+            let isDelete;
+            let idSanto = e.target.dataset.id;
+
+            if (e.target.matches(".edit")) {
+                this.#title.textContent = "Editar Santo";
+                this.#form.nombre.value = e.target.dataset.name;
+                this.#form.constelacion.value = e.target.dataset.constellation;
+                this.#form.id.value = idSanto;
+            }
+
+            if (e.target.matches(".delete")) {
+                isDelete = confirm(`¿Estás seguro de eliminar el id ${idSanto}?`);                
+            }
+
+            if (isDelete) {
+                this.#indexController.deleteSanto(idSanto);
+            }
+        })
+    }
 }
