@@ -52,7 +52,7 @@ export class IndexView{
             if (e.target === this.#form && !e.target.id.value) {                
                 this.#indexController.createSanto(newSanto);
             }else{
-                
+                this.#indexController.updateSanto(newSanto, e.target.id.value);
             }
         })
     }

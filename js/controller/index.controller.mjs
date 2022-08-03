@@ -21,6 +21,10 @@ export class IndexController{
         this.#santosService.createSanto(newSanto);
     }
 
+    async updateSanto(newSanto, idSanto){
+        this.#santosService.updateSanto(newSanto, idSanto);
+    }
+
     async deleteSanto (idSanto){
         this.#santosService.deleteSanto(idSanto);
     }

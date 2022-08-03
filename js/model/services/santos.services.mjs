@@ -30,6 +30,27 @@ export class SantosService {
         }
     }
 
+    updateSanto = async (newSanto, idSanto) => {
+        const {nombre, constelacion} = newSanto;
+        try {
+            let result = await axios(`http://localhost:5555/santos/${idSanto}`,
+            {
+                method: "PUT",
+                headers: {
+                "Content-type": "application/json; charset=utf-8"
+                },
+                data: JSON.stringify({
+                    nombre: nombre,
+                    constelacion: constelacion
+                })
+            }),
+            json = await result.data;
+            return json;
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     deleteSanto = async (idSanto) => {
         try {
             let result = await axios(`http://localhost:5555/santos/${idSanto}`,
